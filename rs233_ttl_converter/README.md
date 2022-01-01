@@ -9,11 +9,11 @@ The goal of this sub-project is therefore to adapt the DIN port of the Minitel c
 <img src="assets\assembly.png" width="500">  
 
 ## Schematic 
-Here a schematic to convert Minitel signals to USB signals and vice versa:
+Here a schematic to convert Minitel signals to USB signals and vice versa:  
 <img src="assets\schematic.jpg"  width="500">  
 
 ## Routing 
-Here the routing of the previous schematic:
+Here the routing of the previous schematic:  
 <img src="assets\routing.jpg"  width="500">  
 
 ## Result
