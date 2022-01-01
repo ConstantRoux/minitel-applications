@@ -37,6 +37,33 @@ Input image computer side:
 Output image Minitel side:  
 <img src="results\happy_result.jpg"  width="200">  
 
+# Minitel Mouse
+## General
+The goal of this project is to add a mouse to the Minitel. When you move your computer mouse, the cursor will move on the Minitel terminal in proportion to the size of the main screen.  
+The project is still in progress.
+
+## Use
+### Prerequisites
+Make sure to use Windows OS.  
+On Python 3.x.x, install the serial library corresponding to your Python version.  
+
+### Test
+A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
+```
+python src/mouse_on_monitor.py
+```
+
+### Error case
+- The serial connection between the computer and the Minitel is not correctly established:
+``` 
+Error opening port COM5 at 1200 bauds.
+Error opening Minitel communication.
+```
+
+### Expected result
+Output terminal Minitel:  
+<img src="results\minitel_cursor.gif"  width="200">  
+
 # Bibliography
 - https://github.com/eserandour/Minitel1B_Hard  
 Thanks to this source code, it was possible for me to carry the basic options such as cleaning the screen or switching to semi-graphic mode. 
@@ -83,6 +110,33 @@ Image d'entrée côté ordinateur :
 <br />
 Image de sortie côté Minitel :  
 <img src="results\upssitech_result.jpg"  width="200"> 
+
+# Souris Minitel
+## Général
+Le but de ce projet est d'ajouter une souris au Minitel. Lorsque vous bougerez la souris de votre ordinateur, le curseur se déplacera alors sur le terminal du Minitel proportionnellement à la taille de l'écran principal.  
+Le projet est toujours en cours.
+
+## Utilisation
+### Pré-requis
+Assurez-vous d'utiliser le système d'exploitation Windows.  
+Sur Python 3.x.x, installez la bibliothèque serial correspondant à votre version Python.
+
+### Test
+Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :
+```
+python src/mouse_on_monitor.py
+```
+
+### Cas d'erreur
+- La connexion série entre l'ordinateur et le Minitel ne s'est pas établie correctement :  
+``` 
+Error opening port COM5 at 1200 bauds.
+Error opening Minitel communication.
+```
+
+### Résultat attendu
+Sortie terminal du Minitel :  
+<img src="results\minitel_cursor.gif"  width="200">  
 
 # Bibliographie
 - https://github.com/eserandour/Minitel1B_Hard  

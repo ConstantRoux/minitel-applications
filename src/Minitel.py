@@ -16,6 +16,10 @@ class Minitel:
     PROG                = b'\x6B'
     SPEED_STATUS        = b'\x74'
 
+    # cursor
+    CON                 = b'\x11'  
+    COFF                = b'\x14'   
+
     #screen constants
     CSI = "1B5B"
     FF = b'\x0C'
@@ -77,7 +81,7 @@ class Minitel:
         if n <= 9:
             self.write_byte(bytes([48 + n]))
         else:
-            self.write_byte(bytes([48 + n/10]))
+            self.write_byte(bytes([48 + n//10]))
             self.write_byte(bytes([48 + n%10]))
     
     def write_semigraphical(self, sg_code, foreground, background):
@@ -135,6 +139,12 @@ class Minitel:
     
     def start_new_screen(self):
         self.write_byte(self.FF)
+
+    def active_cursor(self, cursor):
+        if cursor:
+            self.write_byte(self.CON)
+        else:
+            self.write_byte(self.COFF)
 
     def move_cursor(self, x, y):
         self.write_word(bytearray.fromhex(self.CSI))

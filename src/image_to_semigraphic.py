@@ -20,7 +20,7 @@ def main():
     
     # create the image converter (here example image is in assets folder)
     try:
-        image_converter = Imager("assets/upssitch.jpg")
+        image_converter = Imager("assets/happy.jpg")
     except:
         print("Error opening the image.")
         exit()
