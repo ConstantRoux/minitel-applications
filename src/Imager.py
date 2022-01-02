@@ -6,33 +6,38 @@
 # | an image in a semi graphic image                     | #
 # +------------------------------------------------------+ #
 
+import numpy
 import cv2
 import statistics
 
 class Imager:
-    def __init__(self, path):
-        self.image = cv2.imread(path, cv2.IMREAD_COLOR)
-        if self.image is None:
-            print("File at " + path + " doesn't exist or can't be read as an image.")
-            raise
+    def __init__(self, path, mode="image_converter"):
+        self.mode = mode
+        if mode == "image_converter":
+            self.image = cv2.imread(path, cv2.IMREAD_COLOR)
+            if self.image is None:
+                print("File at " + path + " doesn't exist or can't be read as an image.")
+                raise
+        elif mode == "image_drawer":
+            pass
 
     def _resize_image(self, width):
         height = self.image.shape[0] * (width / self.image.shape[1])
         dim = (int(width), int(height))
         self.image = cv2.resize(self.image, dim, interpolation=cv2.INTER_AREA)
 
-        cv2.imwrite("test/test_scaling.jpg", self.image)
+        # cv2.imwrite("test/test_scaling.jpg", self.image)
     
     def _set_image_gray(self):
         self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
 
-        cv2.imwrite("test/test_gray_conversion.jpg", self.image)
+        # cv2.imwrite("test/test_gray_conversion.jpg", self.image)
     
     def _crop_image_2b6(self):
-        height, width, channel = self.image.shape
+        height, width = self.image.shape
         self.image = self.image[0:height - height % 3, 0:width - width % 2]
 
-        cv2.imwrite("test/test_crope.jpg", self.image)
+        # cv2.imwrite("test/test_crope.jpg", self.image)
 
     def _create_semigraphical_image(self):
         list = [] # value, fore, back
@@ -87,7 +92,8 @@ class Imager:
                             value |= mask
                             mask <<= 1               
                 list.append((value.to_bytes(1, byteorder="big"), foreground_mean, background_mean))
-            list.append((b'\n\r', foreground_mean, background_mean))
+            if self.mode == "image_converter":
+                list.append((b'\n\r', foreground_mean, background_mean))
                   
         return list 
                                          
@@ -97,11 +103,16 @@ class Imager:
             for j in range(cols):
                 self.image[i][j] = self.image[i][j] / 255.0 * (level - 1)
         
-        cv2.imwrite("test/test_leveling.jpg", self.image)
+        # cv2.imwrite("test/test_leveling.jpg", self.image)
 
     def convert_image_to_semigraphical(self, width):
         self._resize_image(width)
-        self._crop_image_2b6()
         self._set_image_gray()
+        self._crop_image_2b6()
         self._level_gray_image(8)
+        return self._create_semigraphical_image()
+    
+    def convert_list_to_semigraphical(self, array):
+        self.image = array
+        self._crop_image_2b6()
         return self._create_semigraphical_image()

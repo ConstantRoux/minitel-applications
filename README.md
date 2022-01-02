@@ -64,6 +64,36 @@ Error opening Minitel communication.
 Output terminal Minitel:  
 <img src="results\minitel_cursor.gif"  width="200">  
 
+# Minitel Drawer
+## General
+The goal of this project is to be able to draw an image on the Minitel 2 terminal in 8 shades of gray using semi-graphic characters from a graphic interface on a computer connected in serial communication to the Minitel.  
+The project is still in progress.
+
+## Use
+### Prerequisites
+Make sure to use Windows OS.  
+On Python 3.x.x, install the serial library and cv2 library corresponding to your Python version.  
+
+### Test
+A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
+```
+python src/drawer_minitel.py
+```
+
+### Error cases
+- The serial connection between the computer and the Minitel is not correctly established:
+``` 
+Error opening port COM5 at 1200 bauds.
+Error opening Minitel communication.
+```
+
+### Expected result
+Software computer side:  
+<img src="results\minitel_drawer_software_screen.jpg"  width="200">  
+<br />
+Output image Minitel side:  
+<img src="results\minitel_drawer_result.jpg"  width="200">  
+
 # Bibliography
 - https://github.com/eserandour/Minitel1B_Hard  
 Thanks to this source code, it was possible for me to carry the basic options such as cleaning the screen or switching to semi-graphic mode. 
@@ -137,6 +167,36 @@ Error opening Minitel communication.
 ### Résultat attendu
 Sortie terminal du Minitel :  
 <img src="results\minitel_cursor.gif"  width="200">  
+
+# Minitel Drawer
+## Général
+Le but de ce projet est de pouvoir dessiner une image sur le terminal du Minitel 2 en 8 nuances de gris à l'aide de caractères semi-graphiques depuis une interface graphique sur un ordinateur branché en communication série au Minitel.  
+Le projet est toujours en cours.
+
+## Utilisation
+### Pré-requis
+Assurez-vous d'utiliser le système d'exploitation Windows.  
+Sur Python 3.x.x, installez la bibliothèque serial et cv2 correspondant à votre version Python.
+
+### Test
+Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :  
+```
+python src/drawer_minitel.py
+```
+
+### Cas d'erreur
+- La connexion série entre l'ordinateur et le Minitel ne s'est pas établie correctement :  
+``` 
+Error opening port COM5 at 1200 bauds.
+Error opening Minitel communication.
+```
+
+### Résultat attendu 
+Image du logiciel côté ordinateur :  
+<img src="results\minitel_drawer_software_screen.jpg"  width="200">  
+<br />
+Image de sortie côté Minitel :  
+<img src="results\minitel_drawer_result.jpg"  width="200">  
 
 # Bibliographie
 - https://github.com/eserandour/Minitel1B_Hard  
