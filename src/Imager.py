@@ -96,7 +96,7 @@ class Imager:
                 list.append((b'\n\r', foreground_mean, background_mean))
                   
         return list 
-                                         
+                                   
     def _level_gray_image(self, level):
         rows, cols = self.image.shape
         for i in range(rows):
@@ -104,6 +104,55 @@ class Imager:
                 self.image[i][j] = self.image[i][j] / 255.0 * (level - 1)
         
         # cv2.imwrite("test/test_leveling.jpg", self.image)
+
+    def update_semigraphical(self, grid, grid_x, grid_y):
+        background_mean = 0
+        foreground_mean = 0
+        general_mean = 0
+        general = []
+        background = []
+        foreground = []
+
+        for n in range(3):
+            for m in range(2):
+                general.append(grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n])
+        
+        general_mean = int(statistics.mean(general))
+
+        for n in range(3):
+            for m in range(2):
+                if grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n] <= general_mean:
+                    background.append(grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n])
+                else:
+                    foreground.append(grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n])
+                    
+        
+        if background and foreground:
+            background_mean = statistics.mean(background)
+            foreground_mean = statistics.mean(foreground)
+        elif background and not foreground:
+            background_mean = statistics.mean(background)
+            foreground_mean = background_mean
+        else:
+            foreground_mean = statistics.mean(foreground)
+            background_mean = foreground_mean
+
+        mask = 0x01
+        value = 0x00
+
+        for n in range(3):
+            for m in range(2):
+                if grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n] > general_mean:
+                    grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n] = foreground_mean
+                    value |= mask
+                else:
+                    grid[(grid_x - (grid_x % 2)) + m][(grid_y - (grid_y % 3)) + n] = background_mean   
+
+                mask <<= 1
+                if(mask == 0x20):
+                    value |= mask
+                    mask <<= 1               
+        return (value.to_bytes(1, byteorder="big"), foreground_mean, background_mean)
 
     def convert_image_to_semigraphical(self, width):
         self._resize_image(width)
