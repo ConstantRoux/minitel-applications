@@ -1,16 +1,19 @@
-from MinitelDrawer import MinitelDrawer
-from Minitel import Minitel
 from serial.serialutil import SerialException
+from software.source.Minitel import Minitel
+from software.source.MinitelDrawer import MinitelDrawer
+
 
 def main():
     # create the Minitel object connected on the COM5 at 1200 bauds by default
+    minitel = None
+
     try:
         minitel = Minitel('COM5')
     except SerialException:
         print("Error opening Minitel communication.")
         exit()
-    
-    # change the baudrate communication of the minitel from 1200 to 9600
+
+    # change the baudrate communication of the source from 1200 to 9600
     minitel.set_baudrate(9600)
 
     # reset the Minitel screen
@@ -27,6 +30,7 @@ def main():
 
     # start the drawer
     drawer.run()
+
 
 if __name__ == "__main__":
     main()

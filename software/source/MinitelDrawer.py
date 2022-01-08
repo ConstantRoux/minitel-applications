@@ -1,7 +1,7 @@
 import tkinter
 import numpy
-from tkinter import *
-from Imager import Imager
+from .Imager import Imager
+
 
 class MinitelDrawer:
     def __init__(self, minitel, grid_width=80, grid_height=75, levels=8, size_case=10):
@@ -25,48 +25,48 @@ class MinitelDrawer:
         self._init_window()
         self._create_grid()
         self._create_color_scale()
-        
+
     def _init_window(self):
         self.app.title("Minitel Drawer")
         self.app.geometry("925x800")
-    
+
     def _create_grid(self):
-        self.canvas = tkinter.Canvas(self.app, width=self.grid_width * self.size_case, height=self.grid_height * self.size_case)
+        self.canvas = tkinter.Canvas(self.app, width=self.grid_width * self.size_case,
+                                     height=self.grid_height * self.size_case)
         self.canvas.grid(row=0, column=0, padx=20, pady=20)
 
         for i in range(self.grid_width):
             self.display_grid.append([])
             for j in range(self.grid_height):
-                self.display_grid[i].append(self.canvas.create_rectangle(   i * self.size_case,
-                                                j * self.size_case,
-                                                self.size_case * (i + 1),
-                                                self.size_case * (j + 1),
-                                                fill=self.colors[7],
-                                                outline=""))
-        
-        
-        for i in range(self.grid_height//3):
-            for j in range((self.grid_width)//2):
+                self.display_grid[i].append(self.canvas.create_rectangle(i * self.size_case,
+                                                                         j * self.size_case,
+                                                                         self.size_case * (i + 1),
+                                                                         self.size_case * (j + 1),
+                                                                         fill=self.colors[7],
+                                                                         outline=""))
+
+        for i in range(self.grid_height // 3):
+            for j in range(self.grid_width // 2):
                 self.minitel.write_semigraphical(b'\x5F', 7, 7)
-        self.minitel.move_cursor(1, 1)    
+        self.minitel.move_cursor(1, 1)
 
     def _create_color_scale(self):
-        self.cursor_color_bar = tkinter.Scale(self.app, 
-                                        label='Couleur',
-                                        from_=0,    
-                                        to=self.levels-1, 
-                                        sliderrelief='flat', 
-                                        length=self.grid_height * self.size_case)
-                                        
+        self.cursor_color_bar = tkinter.Scale(self.app,
+                                              label='Couleur',
+                                              from_=0,
+                                              to=self.levels - 1,
+                                              sliderrelief='flat',
+                                              length=self.grid_height * self.size_case)
+
         self.cursor_color_bar.grid(row=0, column=1)
-  
+
     def _on_mouse_click(self, event):
         # update case of grid
         grid_x = event.x // self.size_case
         grid_y = event.y // self.size_case
-        
+
         # check mouse position
-        if not(grid_x < 0 or grid_x >= self.grid_width or grid_y < 0 or grid_y >= self.grid_height):
+        if not (grid_x < 0 or grid_x >= self.grid_width or grid_y < 0 or grid_y >= self.grid_height):
             # buf old color
             color1 = self.canvas.itemcget(self.display_grid[grid_x][grid_y], 'fill')
 
@@ -80,7 +80,7 @@ class MinitelDrawer:
                 new_sg = self.imager.update_semigraphical(self.grid_saved, grid_x, grid_y)
                 self.minitel.move_cursor(grid_x // 2 + 1, grid_y // 3 + 1)
                 self.minitel.write_semigraphical(new_sg[0], int(new_sg[1]), int(new_sg[2]))
-        
+
     def run(self):
         self.canvas.bind("<B1-Motion>", self._on_mouse_click)
         self.app.mainloop()

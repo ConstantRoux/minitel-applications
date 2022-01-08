@@ -6,26 +6,31 @@
 # | on a Minitel 2 Alcatel in the semi graphic mode      | #
 # +------------------------------------------------------+ #
 
-from Minitel import Minitel
-from Imager import Imager
 from serial.serialutil import SerialException
+from software.source.Imager import Imager
+from software.source.Minitel import Minitel
+
 
 def main():
     # create the Minitel object connected on the COM5 at 1200 bauds by default
+    minitel = None
+
     try:
         minitel = Minitel('COM5')
     except SerialException:
         print("Error opening Minitel communication.")
         exit()
-    
+
     # create the image converter (here example image is in assets folder)
+    image_converter = None
+
     try:
-        image_converter = Imager("assets/happy.jpg")
+        image_converter = Imager("/software/assets/happy.jpg")
     except:
         print("Error opening the image.")
         exit()
-    
-    # change the baudrate communication of the minitel from 1200 to 9600
+
+    # change the baudrate communication of the source from 1200 to 9600
     minitel.set_baudrate(9600)
 
     # reset the Minitel screen
@@ -40,6 +45,7 @@ def main():
     # print the semi-graphical image on Minitel char by char
     for i in range(len(sg_image)):
         minitel.write_semigraphical(sg_image[i][0], sg_image[i][1], sg_image[i][2])
+
 
 if __name__ == "__main__":
     main()
