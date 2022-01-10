@@ -44,7 +44,6 @@ class Imager:
         height, width = self.image.shape
         background_mean = 0
         foreground_mean = 0
-        general_mean = 0
 
         for i in range(0, height, 3):
             for j in range(0, width, 2):
@@ -104,7 +103,8 @@ class Imager:
 
         # cv2.imwrite("test/test_leveling.jpg", self.image)
 
-    def update_semigraphical(self, grid, grid_x, grid_y):
+    @staticmethod
+    def update_semigraphical(grid, grid_x, grid_y):
         general = []
         background = []
         foreground = []

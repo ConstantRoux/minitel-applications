@@ -25,7 +25,7 @@ def main():
     image_converter = None
 
     try:
-        image_converter = Imager("/software/assets/happy.jpg")
+        image_converter = Imager("C:/Users/Constant/Desktop/projects/minitel/software/assets/rubikscube.jpg")
     except:
         print("Error opening the image.")
         exit()
@@ -40,7 +40,7 @@ def main():
     minitel.set_mode(1)
 
     # convert classic image to semi-graphic image (max size parameter for Minitel is 79)
-    sg_image = image_converter.convert_image_to_semigraphical(79)
+    sg_image = image_converter.convert_image_to_semigraphical(58)
 
     # print the semi-graphical image on Minitel char by char
     for i in range(len(sg_image)):
