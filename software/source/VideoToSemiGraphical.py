@@ -1,3 +1,12 @@
+# +----------------------------------------------------------+ #
+# | Title: Minitel.py                                        | #
+# | Author: Constant ROUX                                    | #
+# | Date: 30 / 12 / 2021                                     | #
+# | Contents : A class file to manipulate video and          | #
+# | transform it in semigraphical characters variations for  | #
+# | the Minitel 2 Alcatel to print image in semi graphic mode| #
+# +----------------------------------------------------------+ #
+
 import cv2
 from .Imager import Imager
 

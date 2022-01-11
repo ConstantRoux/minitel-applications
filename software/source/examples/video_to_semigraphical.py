@@ -1,3 +1,11 @@
+# +------------------------------------------------------+ #
+# | Title: video_to_semigraphical.py                     | #
+# | Author: Constant ROUX                                | #
+# | Date: 01 / 01 / 2022                                 | #
+# | Contents : A file example which display a video on   | #
+# | the Minitel 2 Alcatel.                               | #
+# +------------------------------------------------------+ #
+
 from serial import SerialException
 
 from software.source.Imager import Imager

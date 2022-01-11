@@ -1,3 +1,12 @@
+# +----------------------------------------------------------+ #
+# | Title: MinitelDrawer.py                                  | #
+# | Author: Constant ROUX                                    | #
+# | Date: 30 / 12 / 2021                                     | #
+# | Contents : A class file to create tkinter interface      | #
+# | necessary to draw on the Minitel 2 Alcatel in semi       | #
+# | graphic mode                                             | #
+# +----------------------------------------------------------+ #
+
 import tkinter
 import numpy
 from .Imager import Imager
