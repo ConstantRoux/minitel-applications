@@ -1,6 +1,15 @@
 # About Minitel
-
 Minitel is a type of computer terminal intended for connection to the french Vidéotex service called Télétel, commercially operated in France between 1980 and 2012. Providing access to various services prefiguring those future Internet, and using for this the French network Transpac which itself foreshadowed the future Internet transmission infrastructure, it has raised France to the forefront of global telematics thanks to the first service in the world of free or paid supply of 'telematic information. It will be a considerable success and will remain popular for a long time.
+
+# Prerequisites
+## Computer side
+- Make sure to use Windows OS.
+- Run the example files via the venv.  
+- Configure the port on the example files.
+
+## Minitel side
+- Turn on the Minitel
+- Press ```Fnct``` + ```Sommaire```
 
 # Minitel Image Viewer
 ## General
@@ -8,10 +17,6 @@ The goal of this project is to visualize any image (in color or in black and whi
 The project is still in progress. 
 
 ## Use
-### Prerequisites
-Make sure to use Windows OS.  
-On Python 3.x.x, install the serial library and cv2 library corresponding to your Python version.  
-
 ### Test
 A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
 ```
@@ -43,10 +48,6 @@ The goal of this project is to add a mouse to the Minitel. When you move your co
 The project is still in progress.
 
 ## Use
-### Prerequisites
-Make sure to use Windows OS.  
-On Python 3.x.x, install the serial library corresponding to your Python version.  
-
 ### Test
 A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
 ```
@@ -70,10 +71,6 @@ The goal of this project is to be able to draw an image on the Minitel 2 termina
 The project is still in progress.
 
 ## Use
-### Prerequisites
-Make sure to use Windows OS.  
-On Python 3.x.x, install the serial library and cv2 library corresponding to your Python version.  
-
 ### Test
 A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
 ```
@@ -100,10 +97,6 @@ The goal of this project is to be able to display a video on the Minitel 2 termi
 The project is still in progress.
 
 ## Use
-### Prerequisites
-Make sure to use Windows OS.  
-On Python 3.x.x, install the serial library and cv2 library corresponding to your Python version.  
-
 ### Test
 A test file is provided with the source code. To execute it, write the command below in a terminal at the root of the project :  
 ```
@@ -136,16 +129,22 @@ With the Minitel 2 documentation, I was able to understand and implement the con
 # A propos du Minitel
 Le Minitel est un type de terminal informatique destiné à la connexion au service français de Vidéotex baptisé Télétel, commercialement exploité en France entre 1980 et 2012. Donnant accès à des services variés préfigurant ceux du futur Internet, et utilisant pour cela le réseau français Transpac qui lui-même préfigurait la future infrastructure de transmission d'Internet, il a hissé la France au premier plan de la télématique mondiale grâce au premier service au monde de fourniture gratuite ou payante d’informations télématiques. Il sera un succès considérable et restera longtemps populaire.
 
+# Pré-requis
+## Côté ordinateur
+- S'assurer d'utiliser un OS Windows.
+- Exécuter les fichiers en exemple via la venv.  
+- Configurer le bon port sur les fichiers en exemple.
+
+## Minitel side
+- Turn on the Minitel
+- Press ```Fnct``` + ```Sommaire```
+
 # Visualisateur d'image Minitel
 ## Général
 Le but de ce projet est de visualiser n'importe quelle image (en couleurs ou en noir et blanc) en 8 nuances de gris sur le Minitel 2 Alcatel grâce aux caractères semi-graphiques.  
 Le projet est toujours en cours. 
 
 ## Utilisation
-### Pré-requis
-Assurez-vous d'utiliser le système d'exploitation Windows.  
-Sur Python 3.x.x, installez la bibliothèque serial et cv2 correspondant à votre version Python.
-
 ### Test
 Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :
 ```
@@ -177,10 +176,6 @@ Le but de ce projet est d'ajouter une souris au Minitel. Lorsque vous bougerez l
 Le projet est toujours en cours.
 
 ## Utilisation
-### Pré-requis
-Assurez-vous d'utiliser le système d'exploitation Windows.  
-Sur Python 3.x.x, installez la bibliothèque serial correspondant à votre version Python.
-
 ### Test
 Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :
 ```
@@ -204,10 +199,6 @@ Le but de ce projet est de pouvoir dessiner une image sur le terminal du Minitel
 Le projet est toujours en cours.
 
 ## Utilisation
-### Pré-requis
-Assurez-vous d'utiliser le système d'exploitation Windows.  
-Sur Python 3.x.x, installez la bibliothèque serial et cv2 correspondant à votre version Python.
-
 ### Test
 Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :  
 ```
@@ -234,10 +225,6 @@ Le but de ce projet est de pouvoir afficher une vidéo sur le terminal du Minite
 Le projet est toujours en cours.
 
 ## Utilisation
-### Pré-requis
-Assurez-vous d'utiliser le système d'exploitation Windows.  
-Sur Python 3.x.x, installez la bibliothèque serial et cv2 correspondant à votre version Python.
-
 ### Test
 Un fichier test est fourni avec le code source. Pour l'exécuter, écrivez la commande ci-dessous dans un terminal à la racine du projet :  
 ```
