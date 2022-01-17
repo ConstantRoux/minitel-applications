@@ -4,7 +4,7 @@ Minitel is a type of computer terminal intended for connection to the french Vid
 # Prerequisites
 ## Computer side
 - Make sure to use Windows OS.
-- Run the example files via the venv.  
+- Run the example files via the venv (On VSCode, do ```export PYTHONPATH=.``` before executing file).
 - Configure the port on the example files.
 
 ## Minitel side
@@ -132,7 +132,7 @@ Le Minitel est un type de terminal informatique destiné à la connexion au serv
 # Pré-requis
 ## Côté ordinateur
 - S'assurer d'utiliser un OS Windows.
-- Exécuter les fichiers en exemple via la venv.  
+- Exécuter les fichiers en exemple via la venv (Sur VSCode, exécuter ```export PYTHONPATH=.``` avant toute exécution). 
 - Configurer le bon port sur les fichiers en exemple.
 
 ## Minitel side

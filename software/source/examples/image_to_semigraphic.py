@@ -7,7 +7,6 @@
 # +------------------------------------------------------+ #
 
 from serial.serialutil import SerialException
-
 from source.objects.Imager import Imager
 from source.objects.Minitel import Minitel
 
