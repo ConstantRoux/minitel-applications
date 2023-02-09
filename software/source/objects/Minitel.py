@@ -7,6 +7,7 @@
 # | Minitel 2 Alcatel to print image in semi graphic mode    | #
 # +----------------------------------------------------------+ #
 
+import time
 import serial
 from serial.serialutil import SerialException
 
@@ -112,6 +113,9 @@ class Minitel:
             self.write_byte(b'\x7F')
 
         self.minitel_com.close()
+
+        time.sleep(1)  # sleep is necessary on Linux
+
         try:
             self.minitel_com = serial.Serial(port=self.port, baudrate=baudrate, parity=serial.PARITY_EVEN,
                                              bytesize=serial.SEVENBITS, stopbits=serial.STOPBITS_ONE, timeout=None)

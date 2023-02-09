@@ -1,6 +1,6 @@
 from serial.serialutil import SerialException
-from source.objects.Minitel import Minitel
-from source.objects.MinitelDrawer import MinitelDrawer
+from software.source.objects.Minitel import Minitel
+from software.source.objects.MinitelDrawer import MinitelDrawer
 
 
 def main():

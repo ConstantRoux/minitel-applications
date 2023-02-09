@@ -7,8 +7,8 @@
 # +------------------------------------------------------+ #
 
 from serial import SerialException
-from source.objects.Minitel import Minitel
-from source.objects.VideoToSemiGraphical import VideoToSemiGraphical
+from software.source.objects.Minitel import Minitel
+from software.source.objects.VideoToSemiGraphical import VideoToSemiGraphical
 
 
 def main():

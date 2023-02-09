@@ -8,8 +8,8 @@
 
 import pyautogui
 import ctypes
-from serial.serialutil import SerialException
-from source.objects.Minitel import Minitel
+from software.serial.serialutil import SerialException
+from software.source.objects.Minitel import Minitel
 
 
 def main():
